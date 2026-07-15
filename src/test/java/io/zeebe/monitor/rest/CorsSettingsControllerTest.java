@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,8 +28,8 @@ public class CorsSettingsControllerTest {
   @LocalServerPort protected int port;
   @Autowired protected MockMvc mockMvc;
 
-  @MockBean protected HazelcastConfigRepository hazelcastConfigRepository;
-  @MockBean protected ZeebeHazelcastService zeebeHazelcastService;
+  @MockitoBean protected HazelcastConfigRepository hazelcastConfigRepository;
+  @MockitoBean protected ZeebeHazelcastService zeebeHazelcastService;
 
   @Test
   public void access_control_origin_request_header_is_checked() throws Exception {

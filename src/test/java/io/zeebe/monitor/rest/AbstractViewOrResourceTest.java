@@ -22,7 +22,7 @@ import io.zeebe.monitor.zeebe.status.ZeebeStatusUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
@@ -48,19 +48,19 @@ public abstract class AbstractViewOrResourceTest {
   @Autowired protected InstancesVariableListController instancesVariableListController;
   @Autowired protected ZeebeStatusKeeper zeebeStatusKeeper;
 
-  @MockBean protected ZeebeStatusUpdateService zeebeStatusUpdateService;
-  @MockBean protected HazelcastConfigRepository hazelcastConfigRepository;
-  @MockBean protected ZeebeHazelcastService zeebeHazelcastService;
-  @MockBean protected ProcessRepository processRepository;
-  @MockBean protected ProcessInstanceRepository processInstanceRepository;
-  @MockBean protected ElementInstanceRepository elementInstanceRepository;
-  @MockBean protected IncidentRepository incidentRepository;
-  @MockBean protected JobRepository jobRepository;
-  @MockBean protected MessageRepository messageRepository;
-  @MockBean protected MessageSubscriptionRepository messageSubscriptionRepository;
-  @MockBean protected TimerRepository timerRepository;
-  @MockBean protected VariableRepository variableRepository;
-  @MockBean protected ErrorRepository errorRepository;
+  @MockitoBean protected ZeebeStatusUpdateService zeebeStatusUpdateService;
+  @MockitoBean protected HazelcastConfigRepository hazelcastConfigRepository;
+  @MockitoBean protected ZeebeHazelcastService zeebeHazelcastService;
+  @MockitoBean protected ProcessRepository processRepository;
+  @MockitoBean protected ProcessInstanceRepository processInstanceRepository;
+  @MockitoBean protected ElementInstanceRepository elementInstanceRepository;
+  @MockitoBean protected IncidentRepository incidentRepository;
+  @MockitoBean protected JobRepository jobRepository;
+  @MockitoBean protected MessageRepository messageRepository;
+  @MockitoBean protected MessageSubscriptionRepository messageSubscriptionRepository;
+  @MockitoBean protected TimerRepository timerRepository;
+  @MockitoBean protected VariableRepository variableRepository;
+  @MockitoBean protected ErrorRepository errorRepository;
 
   protected void mockCLusterStatusForViews() {
     final Topology topologyMock = mock(Topology.class);
