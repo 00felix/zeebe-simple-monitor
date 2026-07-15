@@ -11,7 +11,7 @@ import io.zeebe.monitor.zeebe.ZeebeNotificationService;
 import io.zeebe.monitor.zeebe.protobuf.importers.ProcessAndElementProtobufImporter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -23,7 +23,7 @@ public class ProcessAndElementHazelcastImporterTest extends ZeebeRepositoryTest 
 
   @Autowired ElementInstanceRepository elementInstanceRepository;
 
-  @MockBean SimpMessagingTemplate simpMessagingTemplate;
+  @MockitoBean SimpMessagingTemplate simpMessagingTemplate;
 
   @Test
   public void only_storing_first_variable_event_prevents_duplicate_PartitionID_and_Position() {

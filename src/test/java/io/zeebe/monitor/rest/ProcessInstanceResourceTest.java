@@ -13,14 +13,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 
 class ProcessInstanceResourceTest extends AbstractViewOrResourceTest {
 
   @Autowired protected ProcessInstanceResource processInstanceResource;
 
-  @MockBean() private ZeebeNotificationService zeebeNotificationServiceMock;
+  @MockitoBean() private ZeebeNotificationService zeebeNotificationServiceMock;
 
   @Test
   void resolve_incident_command_is_send_even_when_prior_change_job_retries_command_fails()
