@@ -1,8 +1,12 @@
+camunda:
+  client:
+    mode: self-managed
+    grpc-address: http://localhost:26500
+    security:
+      plaintext: true
+
 zeebe:
   client:
-    broker.gatewayAddress: 127.0.0.1:26500
-    security.plaintext: true
-
     worker:
       hazelcast:
         connection: localhost:5701
