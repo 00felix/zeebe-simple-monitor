@@ -25,7 +25,7 @@
 
         <querydsl.version>5.1.0</querydsl.version>
 
-        <spring.boot.version>3.5.3</spring.boot.version>
+        <spring.boot.version>4.1.0</spring.boot.version>
         <!-- pin Hazelcast version because of spring-boot-dependencies -->
         <version.hazelcast>5.5.0</version.hazelcast>
 
@@ -115,19 +115,9 @@
         <!-- spring deps-->
         <dependency>
             <groupId>io.camunda</groupId>
-            <artifactId>camunda-spring-boot-3-starter</artifactId>
+            <artifactId>camunda-spring-boot-4-starter</artifactId>
             <version>${version.zeebe.spring}</version>
-            <exclusions>
-                <exclusion>
-                    <!--
-                    BECAUSE OF ERROR MESSAGE:
-                    Standard Commons Logging discovery in action with spring-jcl:
-                    please remove commons-logging.jar from classpath in order to avoid potential conflicts
-                    -->
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <!-- commons-logging is required by Spring Framework 7.x (spring-core) -->
         </dependency>
 
         <dependency>
@@ -153,6 +143,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-kafka</artifactId>
         </dependency>
 
         <dependency>
@@ -269,6 +264,18 @@
                     <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webmvc-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-restclient</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>

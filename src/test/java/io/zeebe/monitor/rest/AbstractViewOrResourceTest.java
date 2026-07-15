@@ -20,10 +20,11 @@ import io.zeebe.monitor.zeebe.status.ClusterStatus;
 import io.zeebe.monitor.zeebe.status.ZeebeStatusKeeper;
 import io.zeebe.monitor.zeebe.status.ZeebeStatusUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.resttestclient.TestRestTemplate;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
@@ -37,6 +38,7 @@ import org.springframework.test.web.servlet.MockMvc;
       "white-label.custom.js.path: js/test-custom.js",
       "logging.level.io.zeebe.monitor: info",
     })
+@AutoConfigureTestRestTemplate
 @AutoConfigureMockMvc
 @ActiveProfiles("junittest")
 public abstract class AbstractViewOrResourceTest {
